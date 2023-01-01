@@ -14,7 +14,10 @@ INCS := include libs/glad/include libs/glfw/include
 SRC_DIR := src
 BUILD_DIR := .build
 
-SRCS := main.cpp
+SRCS := main.cpp \
+		window_handling.cpp \
+		events_handling.cpp \
+		error_handling.cpp
 GLAD_SRC := libs/glad/src/glad.c
 
 OBJS := $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
