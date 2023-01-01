@@ -3,7 +3,8 @@
     {
       "name": "includeFiles",
       "includePath": [
-        "${workspaceFolder}/include/*"
+        "${workspaceFolder}/include/*",
+        "${workspaceFolder}/libs/glad/include"
       ],
       "defines": []
     }
