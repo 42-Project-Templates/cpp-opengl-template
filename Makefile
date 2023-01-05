@@ -12,19 +12,26 @@ endif
 INCS := include libs/glad/include libs/glfw/include libs/glm
 
 SRC_DIR := src
+CSRC_DIR := libs/glad/src
 BUILD_DIR := .build
 
 SRCS := main.cpp \
 		window_handling.cpp \
 		events_handling.cpp \
 		error_handling.cpp
-GLAD_SRC := libs/glad/src/glad.c
+
+CSRCS := glad.c
 
 OBJS := $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
+OBJS += $(CSRCS:%.c=$(BUILD_DIR)/%.o)
+
 DEPS := $(OBJS:.o=.d)
 
+CC := gcc
+CFLAGS := -Wall -Werror -Wextra -std=c99
+
 CXX := c++
-CXXFLAGS := -Wall -Werror -Wextra
+CXXFLAGS := -Wall -Werror -Wextra -std=c++11
 CPPFLAGS := $(addprefix -I, $(INCS)) -MMD -MP
 
 RM := rm -rf
@@ -40,11 +47,16 @@ memory: re
 address: CXXFLAGS += -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment -g
 address: re
 
+print-%: ; @echo $* = $($*)
+
 $(NAME): $(BUILD_DIR) $(OBJS)
-	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(GLAD_SRC) $(OBJS) -o $(NAME) $(LDFLAGS) $(LDLIBS)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME) $(LDFLAGS) $(LDLIBS)
 
 $(BUILD_DIR):
 	@test -d $@ || mkdir -p $@
+
+$(BUILD_DIR)/%.o: $(CSRC_DIR)/%.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
