@@ -18,7 +18,8 @@ BUILD_DIR := .build
 SRCS := main.cpp \
 		window_handling.cpp \
 		events_handling.cpp \
-		error_handling.cpp
+		error_handling.cpp \
+		Shader.cpp
 
 CSRCS := glad.c
 
