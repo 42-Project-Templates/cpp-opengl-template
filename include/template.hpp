@@ -9,6 +9,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "colors.h"
+#include "Shader.hpp"
 
 #define WIDTH 800
 #define HEIGHT 600
