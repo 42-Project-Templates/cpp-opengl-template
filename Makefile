@@ -9,7 +9,7 @@ else
 	LDLIBS := -lglfw3 -lm -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
 endif
 
-INCS := include libs/glad/include libs/glfw/include
+INCS := include libs/glad/include libs/glfw/include libs/glm
 
 SRC_DIR := src
 BUILD_DIR := .build
