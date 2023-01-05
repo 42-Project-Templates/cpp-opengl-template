@@ -4,7 +4,9 @@
       "name": "includeFiles",
       "includePath": [
         "${workspaceFolder}/include/*",
-        "${workspaceFolder}/libs/glad/include"
+        "${workspaceFolder}/libs/glad/include",
+        "${workspaceFolder}/libs/glfw/include",
+        "${workspaceFolder}/libs/glm"
       ],
       "defines": []
     }
