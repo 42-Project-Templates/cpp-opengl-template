@@ -31,3 +31,6 @@ void	framebuffer_size_callback(GLFWwindow *win, int width, int height);
 
 /* error_handling.cpp */
 void	handle_error(int error);
+
+/* load_textures.cpp */
+GLuint	loadTexture(std::string path);

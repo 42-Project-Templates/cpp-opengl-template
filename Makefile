@@ -19,7 +19,8 @@ SRCS := main.cpp \
 		window_handling.cpp \
 		events_handling.cpp \
 		error_handling.cpp \
-		Shader.cpp
+		Shader.cpp \
+		load_textures.cpp
 
 CSRCS := glad.c
 
