@@ -17,7 +17,10 @@
 				"ms-azuretools.vscode-docker",
 				"github.vscode-github-actions",
 				"timonwong.shellcheck",
-				"robertz.code-snapshot"
+				"robertz.code-snapshot",
+				"dtoplak.vscode-glsllint",
+				"slevesque.shader",
+				"ms-vscode.hexeditor"
 			],
 			"settings": {
 				"dotfiles.repository": "https://github.com/42-Project-Templates/dotfiles.git",
